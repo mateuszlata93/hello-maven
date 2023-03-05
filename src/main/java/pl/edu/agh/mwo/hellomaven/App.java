@@ -12,12 +12,16 @@ import com.indvd00m.ascii.render.elements.PseudoText;
 public class
 App {
 
+    public static final int TEXT_WIDTH = 120;
+    public static final int TEXT_HEIGHT = 20;
+    public static final int RANDOM = 4;
+
     public static void main(String[] args) {
         System.out.println("Hello World!");
 
         IRender render = new Render();
         IContextBuilder builder = render.newBuilder();
-        builder.width(120).height(20);
+        builder.width(TEXT_WIDTH).height(TEXT_HEIGHT);
         builder.element(new PseudoText("PseudoText"));
         ICanvas canvas = render.render(builder.build());
         String s = canvas.getText();
@@ -29,6 +33,6 @@ App {
     public int getRandomNumber() {
         // chosen by fair dice roll.
         // guaranteed to be random
-        return 4;
+        return RANDOM;
     }
 }
